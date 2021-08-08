@@ -1,3 +1,9 @@
+// import { hello } from '../pixi/module';
+// let val = hello(); // val is "Hello";
+
+import { default as gameLoopModule } from './gameLoop.js';
+
+console.log(gameLoopModule);
 let app;
 let player;
 let keys = {};
@@ -28,6 +34,10 @@ window.onload = function () {
   window.addEventListener('keydown', keysDown);
   window.addEventListener('keyup', keysUp);
 
+  //   NO CARGA AL IMPORTAR DESDE GAMELOOP.JS
+  //   app.ticker.add(gameLoopModule);
+
+  // SI CARGA AL TENER LA FUNCIÓN EN EL MISMO JS
   app.ticker.add(gameLoop);
 
   keysDiv = document.getElementById('keys');
@@ -75,3 +85,5 @@ function gameLoop() {
     player.x += speed;
   }
 }
+
+// export default app;
